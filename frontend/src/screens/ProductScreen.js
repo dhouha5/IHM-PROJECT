@@ -131,13 +131,13 @@ const ProductScreen = ({ history, match }) => {
 										<Row>
 											<Col>Status:</Col>
 											<Col>
-												{product.countInStock > 0 ? 'In Stock' : 'Out of Stock'}
+												{product.subCategory > 0 ? 'In Stock' : 'Out of Stock'}
 											</Col>
 										</Row>
 									</ListGroup.Item>
 
 									{/* Quantity of stock */}
-									{product.countInStock > 0 && (
+									{product.subCategory > 0 && (
 										<ListGroup.Item>
 											<Row>
 												<Col>Qty</Col>
@@ -147,8 +147,8 @@ const ProductScreen = ({ history, match }) => {
 														value={qty}
 														onChange={(e) => setQty(e.target.value)}
 													>
-														{/* Getting countInStock keys */}
-														{[...Array(product.countInStock).keys()].map(
+														{/* Getting subCategory keys */}
+														{[...Array(product.subCategory).keys()].map(
 															(x) => (
 																<option key={x + 1} value={x + 1}>
 																	{x + 1}
@@ -162,7 +162,7 @@ const ProductScreen = ({ history, match }) => {
 									)}
 
 									<ListGroup.Item>
-										{product.countInStock > 0 ? (
+										{product.subCategory > 0 ? (
 											/* Add to cart button */
 											<Button
 												onClick={addToCartHandler}
@@ -180,7 +180,7 @@ const ProductScreen = ({ history, match }) => {
 											<Button
 												className='btn-block'
 												type='button'
-												disabled={product.countInStock === 0}
+												disabled={product.subCategory === ''}
 											>
 												Sold Out
 											</Button>

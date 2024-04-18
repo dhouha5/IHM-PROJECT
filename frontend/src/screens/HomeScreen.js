@@ -40,6 +40,7 @@ const HomeScreen = ({ match }) => {
                 <MenuAlignResponsiveExample
                     onSelectCategory={handleCategorySelect}
                     selectedCategory={selectedCategory}
+                    categoriesList={Array.from(new Set(products.map(product => product.category)))}
                 />
             </div>
             {!keyword ? (
@@ -73,12 +74,12 @@ const HomeScreen = ({ match }) => {
     );
 };
 
-const MenuAlignResponsiveExample = ({ onSelectCategory, selectedCategory }) => {
-    const categories = ['Category 1', 'Category 2', 'Category 3', 'Category 4'];
+const MenuAlignResponsiveExample = ({ onSelectCategory, selectedCategory, categoriesList }) => {
+    // const categories= ['Category 1', 'Category 2', 'Category 3', 'Category 4'];
 
     return (
         <>
-            {categories.map((category, index) => (
+            {categoriesList.map((category, index) => (
                 <SplitButton
                     key={index}
                     id={`dropdown-split-button-${index}`}

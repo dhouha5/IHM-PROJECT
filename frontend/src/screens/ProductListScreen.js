@@ -72,14 +72,14 @@ const ProductListScreen = ({ history, match }) => {
 		<>
 			<Row className='align-items-center'>
 				<Col>
-					<h1>Products</h1>
+					<h1>Posts</h1>
 				</Col>
 				<Col className='text-right'>
 					<Button className='my-3' onClick={createProductHandler}>
 						<span className='plus-sign-margin'>
 							<i className='fas fa-plus'></i>
 						</span>
-						Create Product
+						Create post
 					</Button>
 				</Col>
 			</Row>

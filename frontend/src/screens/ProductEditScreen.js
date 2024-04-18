@@ -16,7 +16,7 @@ const ProductScreen = ({ match, history }) => {
 	const [price, setPrice] = useState(0)
 	const [image, setImage] = useState('')
 	const [brand, setBrand] = useState('')
-	const [countInStock, setCountInStock] = useState(0)
+	const [subCategory, setsubCategory] = useState('')
 	const [category, setCategory] = useState('')
 	const [description, setDescription] = useState('')
 	const [uploading, setUploading] = useState(false)
@@ -48,7 +48,7 @@ const ProductScreen = ({ match, history }) => {
 				setPrice(product.price)
 				setImage(product.image)
 				setBrand(product.brand)
-				setCountInStock(product.countInStock)
+				setsubCategory(product.subCategory)
 				setCategory(product.category)
 				setDescription(product.description)
 			}
@@ -88,7 +88,7 @@ const ProductScreen = ({ match, history }) => {
 				price,
 				image,
 				brand,
-				countInStock,
+				subCategory,
 				category,
 				description,
 			})
@@ -101,7 +101,7 @@ const ProductScreen = ({ match, history }) => {
 				Go Back
 			</Link>
 			<FormContainer>
-				<h1>Edit Product</h1>
+				<h1>Edit Post</h1>
 				{loadingUpdate && <Loader />}
 				{errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
 				{/* On error, display message/error
@@ -162,18 +162,6 @@ const ProductScreen = ({ match, history }) => {
 								onChange={(e) => setBrand(e.target.value)}
 							></Form.Control>
 						</Form.Group>
-						{/* Count in Stock */}
-						<Form.Group controlId='countInStock'>
-							<Form.Label>Count In Stock</Form.Label>
-							<Form.Control
-								type='number'
-								min='0'
-								step='1'
-								placeholder='Enter count in stock'
-								value={countInStock}
-								onChange={(e) => setCountInStock(e.target.value)}
-							></Form.Control>
-						</Form.Group>
 						{/* Category */}
 						<Form.Group controlId='category'>
 							<Form.Label>Category</Form.Label>
@@ -184,6 +172,18 @@ const ProductScreen = ({ match, history }) => {
 								onChange={(e) => setCategory(e.target.value)}
 							></Form.Control>
 						</Form.Group>
+						{/* SubCAtegory */}
+						<Form.Group controlId='subCategory'>
+							<Form.Label>Sub Category</Form.Label>
+							<Form.Control
+								type='text'
+								
+								placeholder='Enter subCategory'
+								value={subCategory}
+								onChange={(e) => setsubCategory(e.target.value)}
+							></Form.Control>
+						</Form.Group>
+						
 						{/* Description */}
 						<Form.Group controlId='description'>
 							<Form.Label>Description</Form.Label>
